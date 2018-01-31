@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var test = "// @require '../style/index.css'";
+		console.log(/(\/\/ *@require) +(('|").+('|")).*/.test(test));
+		if(/(\/\/ *@require) +(('|").+('|")).*/.test(test)) {
+			var xixi = test.replace(/(\/\/ *@require) +(('|").+('|")).*/, 'require($2);');
+			console.log(xixi);
+		}
+	</script>
+	<script>
+		var testTwo = "_include('./style/index.css')";
+		console.log(/(\_include\()+(('|").+('|"))/.test(testTwo));
+		if(/(\_include\()+(('|").+('|"))/.test(testTwo)) {
+			var haha = testTwo.replace(/(\_include\()+(('|").+('|"))\)/, '$2');
+			console.log(/(\_include\()+(('|").+('|"))\)/.exec(testTwo)[2]);
+			console.log(haha);
+		}
+	</script>
+</body>
+</html>
+<script src='./build/index/index.js'></script>
